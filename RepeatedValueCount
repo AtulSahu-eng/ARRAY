@@ -1,0 +1,37 @@
+public class RepeatedValueCount_Array {
+public static void main(String[] args) {
+	int arr[]= {2,8,6,4,4,9,2,8,4,8,9};
+	int fr[]=new int[arr.length];//new array to store count
+	
+	int visited=-1;
+	for(int i=0;i<arr.length;i++)//outer loop compare one value to all value
+	{
+		int count=1;
+		for(int j=i+1;j<arr.length;j++)//inner loop compare all value to one value
+		{
+			if(arr[i]==arr[j])
+			{
+				count++;//condition is true count will be updated
+				fr[j]=visited;
+			}
+			
+		}
+		if(fr[i]!=visited)//condition will true count is stored in fr[i]
+		{
+			fr[i]=count;
+		}
+	}
+	System.out.println("------------------------");
+	System.out.println("Elements |Frequency");
+	System.out.println("------------------------");
+	for(int i=0;i<arr.length;i++)
+	{
+		if(fr[i]!=visited)//condition will be true printing the statement
+		{
+			System.out.println( "    "+arr[i]+"   |    "+fr[i]);
+		}
+	}
+	
+	
+}
+}
