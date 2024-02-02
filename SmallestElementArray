@@ -1,0 +1,32 @@
+
+
+import java.util.Scanner;
+
+public class LargestElementArray {
+	int temp=0;
+public static void main(String[] args) {
+	int arr[]= {4,87,56,90,45,89};
+	Scanner scanner=new Scanner(System.in);
+	System.out.println("enter your number which largest number you find");
+	int n=scanner.nextInt();//take user input
+	LargestElementArray ref=new LargestElementArray();
+	System.out.println(ref.largestElement(arr,arr.length,n));//here pass arr ,length of arrray and user input
+}
+public int largestElement( int []newarr,int total,int n1) //[]newarr store arr value//total store length of the array//n1 store user input
+{
+	
+	for(int i=0;i<total;i++)
+	{
+		for(int j=i+1;j<total;j++)
+		{
+			if(newarr[i]>newarr[j])//array sorted in ascending order
+			{
+				temp=newarr[i];
+				newarr[i]=newarr[j];
+				newarr[j]=temp;
+			}
+		}
+	}
+	return newarr[total-n1];//total length subtract user input and return as user input max element 
+}
+}
